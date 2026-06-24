@@ -1,0 +1,38 @@
+.register-card{
+    width: 80%;
+    padding-top: 30px;
+}
+
+.register-grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.group{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+span{
+    color: #4F46E5;
+    cursor: pointer;
+}
+
+.eye-style{
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-40%);
+    font-size: 20px;
+    color: #999;
+    cursor: pointer;
+}
+
+.group span{
+    color: red;
+    margin: 0px;
+    cursor: auto;
+    margin-left: 10px;
+}
