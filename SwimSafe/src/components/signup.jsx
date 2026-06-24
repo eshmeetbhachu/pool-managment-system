@@ -15,10 +15,31 @@ function SignupForm({ setIsRegistering }) {
   const [confirmPasswordError, setConfirmPasswordError] = useState("");
   let isValid = true;
 
+  const cities = {
+  Punjab: [
+    "Chandigarh",
+    "Amritsar",
+    "Patiala",
+    "Mohali",
+  ],
+
+  Haryana: [
+    "Chandigarh",
+    "Gurgaon",
+    "Ambala",
+    "Karnal",
+  ],
+};
+
   const [formData, setFormData] = useState({
-  name: "",
+  firstName: "",
+  lastName: "",
   email: "",
   phoneNumber: "",
+  address: "",
+  state: "",
+  city: "",
+  gender: "",
   password: "",
   confirmPassword: "",
   });
@@ -40,7 +61,12 @@ function SignupForm({ setIsRegistering }) {
   const passwordRegex =
     /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&]).{8,}$/;
 
-  if (!nameRegex.test(formData.name)) {
+  if (!nameRegex.test(formData.firstName)) {
+    setNameError("Name should contain only letters");
+    isValid = false;
+  }
+
+  if (!nameRegex.test(formData.lastName)) {
     setNameError("Name should contain only letters");
     isValid = false;
   }
@@ -107,10 +133,19 @@ function SignupForm({ setIsRegistering }) {
         <div className="register-grid">
 
         <div className="group"> 
-        <label>Name</label>
+        <label>First Name</label>
         <input type="text"
-        name="name"
-        value={formData.name}
+        name="firstName"
+        value={formData.firstName}
+        onChange={handleChange}/>
+        <span className="error">{nameError}</span>
+        </div>
+
+        <div className="group"> 
+        <label>Last Name</label>
+        <input type="text"
+        name="lastName"
+        value={formData.lastName}
         onChange={handleChange}/>
         <span className="error">{nameError}</span>
         </div>
@@ -131,6 +166,85 @@ function SignupForm({ setIsRegistering }) {
         value={formData.phoneNumber}
         onChange={handleChange}/>
         <span className="error">{phoneError}</span>
+        </div>
+
+        </div>
+
+        <div className="gender-group">
+          <label>Gender:</label>
+          <label>
+            <input
+              type="radio"
+              name="gender"
+              value="Male"
+              onChange={handleChange}
+            />
+            Male
+          </label>
+
+          <label>
+            <input
+              type="radio"
+              name="gender"
+              value="Female"
+              onChange={handleChange}
+            />
+            Female
+          </label>
+
+          <label>
+            <input
+              type="radio"
+              name="gender"
+              value="Other"
+              onChange={handleChange}
+            />
+            Other
+          </label>
+
+        </div>
+
+        <div className="group"> 
+        <label>Address</label>
+        <input type="text"
+        name="address"
+        value={formData.address}
+        onChange={handleChange}/>
+        <span className="error">{nameError}</span>
+        </div>
+
+        <div className="register-grid">
+
+
+        <div className="group">
+        <label>Preferred pool location:</label>
+        <label>State</label>
+        <select
+          name="state"
+          value={formData.state}
+          onChange={handleChange}
+        >
+        <option value="">Select State</option>
+        <option value="Punjab">Punjab</option>
+        <option value="Haryana">Haryana</option>
+        </select>
+        </div>
+
+        <div className="group">
+        <label className="hidden-label">p</label>
+        <label>City</label>
+        <select
+          name="city"
+          value={formData.city}
+          onChange={handleChange}
+        >
+        <option value="">Select City</option>
+        {formData.state &&
+          cities[formData.state].map((city) => (
+          <option key={city} value={city}>{city}</option>
+        ))}
+
+        </select>
         </div>
 
         <div className="group">

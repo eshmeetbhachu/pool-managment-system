@@ -2,11 +2,20 @@ import {User} from "../models/User.js";
 import jwt from "jsonwebtoken";
 
 const registerUser = async (req, res) => {
+
+  console.log("Request received");
+console.log(req.body);
+
   try {
     const {
-      name,
+      firstName,
+      lastName,
       email,
       phoneNumber,
+      address,
+      state,
+      city,
+      gender,
       password,
       confirmPassword,
     } = req.body;
@@ -25,20 +34,32 @@ const registerUser = async (req, res) => {
       });
     }
 
+    console.log("Creating user...");
+
     const user = await User.create({
-      name,
+      firstName,
+      lastName,
       email,
       phoneNumber,
-      password,
+      address,
+      state,
+      city,
+      gender,
+      password
     });
 
     res.status(201).json({
       message: "User registered successfully",
       user: {
         id: user._id,
-        name: user.name,
+        firstName: user.firstName,
+        lastName: user.lastName,
         email: user.email,
         phoneNumber: user.phoneNumber,
+        address: user.address,
+        state: user.state,
+        city: user.city,
+        gender: user.gender,
       },
     });
   } catch (error) {
@@ -46,6 +67,7 @@ const registerUser = async (req, res) => {
       message: error.message,
     });
   }
+  console.log("User created");
 };
 
 

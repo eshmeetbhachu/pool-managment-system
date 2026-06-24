@@ -1,6 +1,8 @@
 .register-card{
     width: 80%;
     padding-top: 30px;
+    height: 800px;
+    margin: 30px;
 }
 
 .register-grid{
@@ -35,4 +37,19 @@ span{
     margin: 0px;
     cursor: auto;
     margin-left: 10px;
+}
+
+.hidden-label{
+    visibility: hidden;
+}
+
+.gender-group{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin: 20px 0px;
+}
+
+select{
+    margin-bottom: 20px;
 }
