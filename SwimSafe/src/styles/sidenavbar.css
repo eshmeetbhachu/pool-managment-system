@@ -1,0 +1,59 @@
+.side-navbar{
+    height: 95vh;
+    width: 250px;
+    margin: 15px 15px;
+    border-radius: 20px;
+    background-color: rgba(255, 255, 255, 0.15);
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+
+}
+
+.side-navbar img{
+    width: 200px;
+    height: 85px;
+    margin: 0px 25px;
+}
+
+.side-navbar p{
+    color: white;
+    font-weight: 300;
+    font-size: 0.75rem;
+    margin: 5px 5px 10px 5px;
+    opacity: 0.8;
+}
+
+
+.side-navbar h4{
+    color: #FFFF;
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+
+.component{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 5px 0px 5px 30px;
+    margin-bottom: 15px;
+    cursor: pointer;
+}
+
+.component svg{
+    color: white;
+}
+
+.component:hover{
+    background-color: rgba(10,19,28,0.7);
+    border-right: 5px solid white;
+}
+
+.general{
+    margin-top: 170px;
+}
+
+.general .component{
+    margin-bottom: 5px;
+}

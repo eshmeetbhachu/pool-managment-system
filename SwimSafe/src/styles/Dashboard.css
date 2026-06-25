@@ -1,0 +1,29 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body,
+#root{
+    width: 100%;
+    height: 100%;
+}
+
+body{
+    background-color: #0A131C;
+}
+
+.dashboard{
+    width: 100vw;
+    min-height: 100vh;
+
+    background-image: url(../assets/dashboardBackground.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    display: flex;
+
+}

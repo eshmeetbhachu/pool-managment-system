@@ -1,0 +1,63 @@
+.top-section{
+    width: 985px;
+    height: 80px;
+    background-color: rgba(255, 255, 255, 0.15);
+    border-radius: 20px;
+    margin: 15px 0px;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.search-container{
+    margin: 5px 20px;
+    width: 300px;
+    position: relative;
+}
+
+.search-container input{
+    border: none;
+    outline: none;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 15px 50px 15px 60px;
+    border-radius: 20px;
+    
+}
+
+.search-icon{
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-55%);
+    font-size: 1.5rem;
+    opacity: 0.7;
+}
+
+.profile{
+    display: flex;
+    margin-right: 5px;
+}
+
+.profile img{
+    height: 60px;
+    width: 60px;
+}
+
+.profile-info{
+    color: white;
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    padding: 10px 0px;
+    margin: 0px 10px;
+}
+
+.profile-info h4{
+    font-weight: 400;
+    font-size: 1rem;
+}
+
+.profile-info p{
+    font-weight: 400;
+    font-size: 0.7rem;
+}

@@ -1,9 +1,19 @@
+import MainContent from "../components/maincontent";
+import SideNavbar from "../components/sideNavbar";
+import TopSection from "../components/topsection";
+import "../styles/Dashboard.css"
+
 function Dashboard(){
     return(
-        <div>
-            <h1 style={{color: "white"}}>DASHBOARD</h1>
-            <p style={{color: "white"}}>pool managment system</p>
+        <>
+        <div className="dashboard">
+            <SideNavbar />
+            <div className="right-side">
+                <TopSection />
+                <MainContent />
+            </div>
         </div>
+        </>
     )
 }
 
