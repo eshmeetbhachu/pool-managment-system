@@ -1,0 +1,21 @@
+
+.dashboard-grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 210px 210px;
+    gap: 10px;
+    margin: 0px 15px;
+}
+
+.card{
+    background-color: rgba(255, 255, 255, 0.15);
+    border-radius: 20px;
+}
+
+.card1{
+    grid-row: span 2;
+}
+
+.card4{
+    grid-column: span 2;
+}

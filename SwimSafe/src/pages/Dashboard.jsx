@@ -1,16 +1,20 @@
-import MainContent from "../components/maincontent";
+import { useState } from "react";
+import MainContent from "../components/Main-content/maincontent";
 import SideNavbar from "../components/sideNavbar";
 import TopSection from "../components/topsection";
 import "../styles/Dashboard.css"
 
 function Dashboard(){
+    const [activePage, setActivePage] = useState("dashboard");
     return(
         <>
         <div className="dashboard">
-            <SideNavbar />
+            <SideNavbar 
+            activePage={activePage}
+            setActivePage={setActivePage}/>
             <div className="right-side">
                 <TopSection />
-                <MainContent />
+                <MainContent activePage={activePage}/>
             </div>
         </div>
         </>

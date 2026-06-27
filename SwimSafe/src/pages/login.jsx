@@ -13,7 +13,7 @@ function Login(){
         <div className="login-page">
         {isRegistering ? 
         <SignupForm setIsRegistering={setIsRegistering} /> : 
-        <LoginForm isRegistering={isRegistering} setIsRegistering={setIsRegistering}/>}
+        <LoginForm  setIsRegistering={setIsRegistering}/>}
         {!isRegistering && <HeroSection />}
         </div>
         </>

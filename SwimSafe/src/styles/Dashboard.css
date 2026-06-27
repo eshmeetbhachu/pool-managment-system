@@ -16,7 +16,7 @@ body{
 }
 
 .dashboard{
-    width: 100vw;
+    width: 100%;
     min-height: 100vh;
 
     background-image: url(../assets/dashboardBackground.png);
@@ -25,5 +25,9 @@ body{
     background-position: center;
 
     display: flex;
+}
 
+.right-side{
+    flex:1;
+    margin: 0px 15px 0px 0px;
 }

@@ -4,7 +4,7 @@ import { FaEyeSlash } from "react-icons/fa";
 import { FaEye } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 
-function LoginForm({isRegistering,setIsRegistering}){
+function LoginForm({setIsRegistering}){
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
