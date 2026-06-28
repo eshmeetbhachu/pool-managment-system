@@ -45,10 +45,10 @@ function SideNavbar({activePage, setActivePage}){
             <div className="content">
            <img src={logo} alt="company-logo" />
            <p>MENU</p>
-           
+            
            {menuItems.map((item) => {
             return(
-                <div className="component" key={item.title} onClick={() => {setActivePage(item.page)}}>
+                <div className={activePage==item.page ? "component active" : "component"} key={item.title} onClick={() => {setActivePage(item.page)}}>
                     <item.icon />
                     <h4>{item.title}</h4>
                 </div>

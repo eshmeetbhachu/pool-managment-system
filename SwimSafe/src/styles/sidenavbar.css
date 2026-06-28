@@ -49,6 +49,11 @@
     color: white;
 }
 
+.component.active{
+    background-color: rgba(10,19,28,0.7);
+    border-right: 5px solid white;
+}
+
 .component:hover{
     background-color: rgba(10,19,28,0.7);
     border-right: 5px solid white;

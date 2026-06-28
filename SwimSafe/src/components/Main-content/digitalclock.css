@@ -1,0 +1,61 @@
+.clock-card{
+
+    height: 100%;
+
+    display:flex;
+    flex-direction:column;
+    justify-content: space-between;
+
+    border-radius:20px;
+    font-family:"Inter",sans-serif;
+
+    padding: 15px 15px;
+}
+
+.clock-card h3{
+    color:white;
+    opacity:0.7;
+}
+
+.clock-card h1{
+    color:white;
+    font-size:2.75rem;
+    letter-spacing:2px;
+}
+
+.clock-card p{
+    color: white;
+    font-weight: 700;
+}
+
+.top-content{
+    display: flex;
+    justify-content: space-between;
+}
+
+.clockin-button{
+    height: fit-content;
+    margin: 0px;
+    background-color: white;
+    border-radius: 5px;
+    padding: 2px 37px 2px 15px;
+    position: relative;
+}
+
+.clockin-button svg{
+    color: rgba(31, 42, 72, 0.95);
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-left: 2px;
+}
+
+.clockin-button span{
+    color: rgba(31, 42, 72, 0.95);
+    margin: 0px;
+    padding: 0px;
+}
+
+.clockin-button span:hover{
+    color: white;
+}

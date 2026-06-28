@@ -36,7 +36,8 @@ form label {
 
 form input[type="email"],
 form input[type="text"],
-form input[type="password"] {
+form input[type="password"],
+form select{
     height: 50px;
     width: 100%;
     border: 2px solid #E5E5E5;

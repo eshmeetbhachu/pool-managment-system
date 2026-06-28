@@ -1,0 +1,74 @@
+/* From Uiverse.io by alexmaracinaru */ 
+
+.staff-information{
+    display: flex;
+    gap: 40px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.card {
+ width: 190px;
+ height: 254px;
+ border-radius: 15px;
+ background: linear-gradient(
+    135deg,
+    rgba(31, 42, 72, 0.95),
+    rgba(59, 86, 143, 0.95)
+);
+
+ font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+
+.card .card-border-top {
+ width: 60%;
+ height: 3%;
+ background: #9392b5;
+ margin: auto;
+ border-radius: 0px 0px 15px 15px;
+}
+
+.card span {
+ font-weight: 600;
+ color: white;
+ text-align: center;
+ display: block;
+ padding-top: 10px;
+ font-size: 16px;
+}
+
+.card .job {
+ font-weight: 400;
+ color: white;
+ display: block;
+ text-align: center;
+ padding-top: 3px;
+ font-size: 12px;
+}
+
+.card .img {
+ width: 80px;
+ height: 90px;
+ background: #7f7da2;
+ border-radius: 15px;
+ margin: auto;
+ margin-top: 25px;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+}
+
+.email{
+    width: 100%;
+    color: white;
+    font-size: 0.85rem;
+    margin: 10px 5px;
+}
+
+.img img{
+    width: 70px;
+    height: 80px;
+    border-radius: 15px;
+}
