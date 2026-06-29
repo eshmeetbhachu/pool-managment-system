@@ -18,6 +18,7 @@ console.log(req.body);
       gender,
       password,
       confirmPassword,
+      designation,
     } = req.body;
 
     if (password !== confirmPassword) {
@@ -45,7 +46,8 @@ console.log(req.body);
       state,
       city,
       gender,
-      password
+      password,
+      designation
     });
 
     res.status(201).json({
@@ -60,6 +62,7 @@ console.log(req.body);
         state: user.state,
         city: user.city,
         gender: user.gender,
+        designation: user.designation,
       },
     });
   } catch (error) {
@@ -115,4 +118,16 @@ const loginUser = async (req, res) => {
   }
 };
 
-export {registerUser,loginUser};
+const fetchUser = async (req,res) => {
+  try {
+    const staff = await User.find();
+    res.status(200).json(staff);
+    
+  } catch (error) {
+      res.status(500).json({
+        message : error.message
+      })
+  }
+}
+
+export {registerUser,loginUser,fetchUser};

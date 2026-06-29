@@ -8,34 +8,35 @@ import { IoIosDocument } from "react-icons/io";
 import { MdMessage } from "react-icons/md";
 import { IoIosSettings } from "react-icons/io";
 import { MdLogout } from "react-icons/md";
+import { NavLink } from "react-router-dom";
 
-function SideNavbar({activePage, setActivePage}){
+function SideNavbar(){
 
     const menuItems =[
         {
             title: "DASHBOARD",
             icon: MdSpaceDashboard,
-            page: "dashboard",
+            path: "/dashboard",
         },
         {
             title: "STAFF",
             icon: IoPeople,
-            page: "staff",
+            path: "/dashboard/staff",
         },
         {
             title: "CALENDAR",
             icon: FaCalendarAlt,
-            page: "calendar",
+            path: "/dashboard/calendar",
         },
         {
-            title: "REPORT",
+            title: "DUTIES",
             icon: IoIosDocument,
-            page: "report",
+            path: "/dashboard/report",
         },
         {
             title: "MESSAGES",
             icon: MdMessage,
-            page: "messages",
+            path: "/dashboard/messages",
         },
     ]
 
@@ -48,10 +49,10 @@ function SideNavbar({activePage, setActivePage}){
             
            {menuItems.map((item) => {
             return(
-                <div className={activePage==item.page ? "component active" : "component"} key={item.title} onClick={() => {setActivePage(item.page)}}>
+                    <NavLink key={item.title} to={item.path} end={item.path === "/dashboard"} className={({isActive}) => isActive?"component active":"component"}>
                     <item.icon />
                     <h4>{item.title}</h4>
-                </div>
+                    </NavLink>
             )
            })}
             </div>

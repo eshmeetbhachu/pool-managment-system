@@ -2,70 +2,32 @@ import "./staffcontent.css"
 import avatar1 from "../../assets/avatar1.jpg"
 import avatar2 from "../../assets/avatar2.jpg"
 import avatar3 from "../../assets/avatar3.jpg"
+import { useEffect, useState } from "react";
 
 function StaffContent(){
 
     const staffImage = [avatar1,avatar2,avatar3];
+    const [staff,setStaff] = useState([]);
 
-    const staffmembers = [
-        {
-            firstName: "Eshmeet",
-            lastName : "Singh",
-            email : "eshmeett@gmail.com",
-            designation : "admin",
-        },
-        {
-            firstName: "Guneet",
-            lastName : "Bhachu",
-            email : "eshmeett@gmail.com",
-            designation : "lifeguard",
-        },
-        {
-            firstName: "Sonia",
-            lastName : "Bhachu",
-            email : "eshmeett@gmail.com",
-            designation : "lifeguard",
-        },
-        {
-            firstName: "Jaspal",
-            lastName : "Singh",
-            email : "eshmeetfwft@gmail.com",
-            designation : "lifeguard",
-        },
-        {
-            firstName: "Eshmeet",
-            lastName : "Singh",
-            email : "eshmeetewft@gmail.com",
-            designation : "admin",
-        },
-        {
-            firstName: "Guneet",
-            lastName : "Bhachu",
-            email : "eshmeeagtt@gmail.com",
-            designation : "lifeguard",
-        },
-        {
-            firstName: "Sonia",
-            lastName : "Bhachu",
-            email : "eshmeett@gmail.com",
-            designation : "lifeguard",
-        },
-        {
-            firstName: "Jaspal",
-            lastName : "Singh",
-            email : "eshmeett@gmail.com",
-            designation : "lifeguard",
-        },
-    ]
+    useEffect(() => {
+        async function fetchStaff() {
+            const response = await fetch("http://localhost:8000/api/auth/staff");
+            const data = await response.json();
+            setStaff(data);
+        }
+        fetchStaff();
+    },[]);
+
+
     return(
         <>
         <h2>STAFF INFORMATION</h2>
 
         <div className="staff-information">
-        {staffmembers.map((person) => {
-            const image = staffImage[Math.floor(Math.random() * staffImage.length)];
+        {staff.map((person,index) => {
+            const image = staffImage[index % staffImage.length];
             return(
-                <div className="card">
+                <div className="card" key={person._id}>
                 <div className="card-border-top">
                 </div>    
                 <div className="img">

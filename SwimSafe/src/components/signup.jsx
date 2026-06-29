@@ -42,6 +42,7 @@ function SignupForm({ setIsRegistering }) {
   gender: "",
   password: "",
   confirmPassword: "",
+  designation:"",
   });
 
   const handleChange = (e) => {
@@ -168,7 +169,7 @@ function SignupForm({ setIsRegistering }) {
         <span className="error">{phoneError}</span>
         </div>
 
-        </div>
+        
 
         <div className="gender-group">
           <label>Gender:</label>
@@ -201,6 +202,21 @@ function SignupForm({ setIsRegistering }) {
             />
             Other
           </label>
+
+        </div>
+
+        <div className="group">
+        <label>Designation</label>
+        <select
+          name="designation"
+          value={formData.designation}
+          onChange={handleChange}
+        >
+        <option value="">Select designation</option>
+        <option value="Admin">Admin</option>
+        <option value="Lifeguard">Lifeguard</option>
+        </select>
+        </div>
 
         </div>
 
