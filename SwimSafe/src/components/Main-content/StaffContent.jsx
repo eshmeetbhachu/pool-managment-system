@@ -3,6 +3,8 @@ import avatar1 from "../../assets/avatar1.jpg"
 import avatar2 from "../../assets/avatar2.jpg"
 import avatar3 from "../../assets/avatar3.jpg"
 import { useEffect, useState } from "react";
+import { NavLink } from "react-router-dom";
+
 
 function StaffContent(){
 
@@ -27,7 +29,7 @@ function StaffContent(){
         {staff.map((person,index) => {
             const image = staffImage[index % staffImage.length];
             return(
-                <div className="card" key={person._id}>
+                <NavLink to={"/dashboard/report"} className="card" key={person._id}>
                 <div className="card-border-top">
                 </div>    
                 <div className="img">
@@ -36,7 +38,7 @@ function StaffContent(){
                 <span>{person.firstName}{" "}{person.lastName}</span>
                 <p className="job"> {person.designation}</p>
                 <p className="email">Email: {person.email}</p>
-                </div>
+                </NavLink>
             )
         })}
         </div>
