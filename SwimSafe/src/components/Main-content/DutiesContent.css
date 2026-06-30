@@ -1,0 +1,70 @@
+.duties-content{
+    width: 95%;
+    min-height: 444px;
+    background-color: white;
+    margin: 15px 25px;
+    border-radius: 20px;
+    padding: 10px 10px;
+
+    display: flex;
+    justify-content: space-between;
+
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+
+.duties-content h2{
+    color: rgb(204, 59, 59);
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 0px;
+}
+
+.duties-content h4{
+    color: rgb(204, 59, 59);
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 0px 20px 15px 20px;
+}
+
+.duties-content p{
+    color: rgb(204, 59, 59);
+    font-size: 1rem;
+    font-weight: bold;
+    margin-left: 20px;
+}
+
+.clock-active h4{
+    color: rgb(24, 204, 24);
+    padding: 10px 15px;
+    margin-top: 10px;
+    border: 1px solid rgb(24, 204, 24);
+    border-radius: 30px;
+    box-shadow: 0 0 10px 0px rgb(24, 204, 24,0.6);
+}
+
+.clock-inactive h4{
+    color: rgb(204, 59, 59);
+    padding: 10px 15px;
+    margin-top: 10px;
+    border: 1px solid rgb(204, 59, 59);
+    border-radius: 30px;
+    box-shadow: 0 0 10px 0px rgb(204, 59, 59,0.6);
+}
+
+.staff-image img{
+    border-radius: 50%;
+    border: 2px solid rgb(204, 59, 59);
+}
+
+.staff-personal-information{
+    margin-top: 10px;
+}
+
+.staff-all-information{
+    display: flex;
+    justify-content: center;
+    margin-left: 10px;
+    margin-top: 5px;
+}

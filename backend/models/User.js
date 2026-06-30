@@ -63,6 +63,19 @@ const userSchema = new mongoose.Schema(
       required: true,
       enum: ["Admin","Lifeguard"],
     },
+
+    isActive: {
+      type: Boolean,
+      default: false,
+    },
+
+    clockInTime: {
+      type: Date,
+    },
+
+    clockOutTime: {
+      type: Date,
+    },
   },
   { timestamps: true }
 );

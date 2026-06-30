@@ -33,6 +33,12 @@
     justify-content: space-between;
 }
 
+.clock-in{
+    display: flex;
+    flex-direction: column;
+    gap: 5px ;
+}
+
 .clockin-button{
     height: fit-content;
     margin: 0px;
@@ -40,6 +46,11 @@
     border-radius: 5px;
     padding: 2px 37px 2px 15px;
     position: relative;
+}
+
+.clockin-button:disabled{
+    opacity: 0.5;
+    cursor: not-allowed;
 }
 
 .clockin-button svg{

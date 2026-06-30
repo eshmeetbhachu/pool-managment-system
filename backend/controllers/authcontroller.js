@@ -19,6 +19,9 @@ console.log(req.body);
       password,
       confirmPassword,
       designation,
+      isActive,
+      clockInTime,
+      clockOutTime
     } = req.body;
 
     if (password !== confirmPassword) {
@@ -47,7 +50,9 @@ console.log(req.body);
       city,
       gender,
       password,
-      designation
+      designation,isActive,
+      clockInTime,
+      clockOutTime
     });
 
     res.status(201).json({
@@ -63,6 +68,9 @@ console.log(req.body);
         city: user.city,
         gender: user.gender,
         designation: user.designation,
+        isActive: user.isActive,
+        clockInTime: user.clockInTime,
+        clockOutTime: user.clockOutTime,
       },
     });
   } catch (error) {
@@ -112,6 +120,9 @@ const loginUser = async (req, res) => {
         lastName:user.lastName,
         designation:user.designation,
         email: user.email,
+        isActive: user.isActive,
+        clockInTime: user.clockInTime,
+        clockOutTime: user.clockOutTime,
       },
     });
   } catch (error) {
@@ -133,4 +144,66 @@ const fetchUser = async (req,res) => {
   }
 }
 
-export {registerUser,loginUser,fetchUser};
+const fetchUserbyID = async (req,res) => {
+  try {
+    const id = req.params.id;
+    const UserbyId = await User.findById(id);
+    res.status(200).json(UserbyId);
+    
+  } catch (error) {
+    res.status(500).json({
+      message: error.message
+    })
+    
+  }
+}
+
+const handleClockIn = async (req,res) =>{
+  try {
+    const id = req.params.id;
+    const updatedUser = await User.findByIdAndUpdate(id,{
+      isActive: true,
+      clockInTime: new Date(),
+    },{new: true})
+    res.status(200).json({
+    id: updatedUser._id,
+    firstName: updatedUser.firstName,
+    lastName: updatedUser.lastName,
+    designation: updatedUser.designation,
+    email: updatedUser.email,
+    isActive: updatedUser.isActive,
+    clockInTime: updatedUser.clockInTime,
+    clockOutTime: updatedUser.clockOutTime
+    });
+  } catch (error) {
+    res.status(500).json({
+      message: error.message
+    })
+  }
+}
+
+const handleClockOut = async (req,res) =>{
+  try {
+    const id = req.params.id;
+    const updatedUser = await User.findByIdAndUpdate(id,{
+      isActive: false,
+      clockOutTime: new Date(),
+    },{new: true})
+    res.status(200).json({
+    id: updatedUser._id,
+    firstName: updatedUser.firstName,
+    lastName: updatedUser.lastName,
+    designation: updatedUser.designation,
+    email: updatedUser.email,
+    isActive: updatedUser.isActive,
+    clockInTime: updatedUser.clockInTime,
+    clockOutTime: updatedUser.clockOutTime
+    });
+  } catch (error) {
+    res.status(500).json({
+      message: error.message
+    })
+  }
+}
+
+export {registerUser,loginUser,fetchUser,fetchUserbyID,handleClockIn,handleClockOut};

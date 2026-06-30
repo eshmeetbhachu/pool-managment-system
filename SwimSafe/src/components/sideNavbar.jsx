@@ -31,7 +31,7 @@ function SideNavbar(){
         {
             title: "DUTIES",
             icon: IoIosDocument,
-            path: "/dashboard/report",
+            path: "/dashboard/duties",
         },
         {
             title: "MESSAGES",

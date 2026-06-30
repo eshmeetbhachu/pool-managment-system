@@ -6,7 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import DashboardContent from './components/Main-content/DashboardContent';
 import StaffContent from './components/Main-content/StaffContent';
 import CalendarContent from './components/Main-content/CalendarContent';
-import ReportContent from './components/Main-content/ReportContent';
+import DutiesContent from './components/Main-content/DutiesContent';
 import MessagesContent from './components/Main-content/MessagesContent';
 
 function App() {
@@ -20,7 +20,7 @@ function App() {
         <Route index element ={<DashboardContent />} />
         <Route path='staff' element={<StaffContent />} />
         <Route path='calendar' element={<CalendarContent />} />
-        <Route path='report' element={<ReportContent />} />
+        <Route path='duties/:id' element={<DutiesContent />} />
         <Route path='messages' element={<MessagesContent />} />
         </Route>
 
