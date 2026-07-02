@@ -61,7 +61,7 @@ const userSchema = new mongoose.Schema(
     designation: {
       type: String,
       required: true,
-      enum: ["Admin","Lifeguard"],
+      enum: ["Admin","Lifeguard","Maintenance"],
     },
 
     isActive: {

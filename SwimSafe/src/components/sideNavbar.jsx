@@ -12,6 +12,8 @@ import { NavLink } from "react-router-dom";
 
 function SideNavbar(){
 
+    const userId = JSON.parse(localStorage.getItem("user")).id;
+
     const menuItems =[
         {
             title: "DASHBOARD",
@@ -31,7 +33,7 @@ function SideNavbar(){
         {
             title: "DUTIES",
             icon: IoIosDocument,
-            path: "/dashboard/duties",
+            path: `/dashboard/duties/${userId}`,
         },
         {
             title: "MESSAGES",

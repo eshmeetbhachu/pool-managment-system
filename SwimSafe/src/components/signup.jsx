@@ -215,6 +215,7 @@ function SignupForm({ setIsRegistering }) {
         <option value="">Select designation</option>
         <option value="Admin">Admin</option>
         <option value="Lifeguard">Lifeguard</option>
+        <option value="Maintenance">Maintenance</option>
         </select>
         </div>
 

@@ -1,4 +1,5 @@
 import {User} from "../models/User.js";
+import { Duty } from "../models/Duty.js";
 import jwt from "jsonwebtoken";
 
 const registerUser = async (req, res) => {
@@ -206,4 +207,47 @@ const handleClockOut = async (req,res) =>{
   }
 }
 
-export {registerUser,loginUser,fetchUser,fetchUserbyID,handleClockIn,handleClockOut};
+const assignDuty = async (req,res) => {
+  try {
+    console.log(req.body);
+    const {title,description,assignedTo,assignedBy} = req.body;
+
+    const duty = await Duty.create({
+      title,
+      description,
+      assignedBy,
+      assignedTo
+    });
+
+    res.status(200).json({
+      message: "task created",
+      duty : {
+        id: duty._id,
+        title: duty.title,
+        description:duty.description,
+        assignedBy:duty.assignedBy,
+        assignedTo:duty.assignedTo,
+      }
+    })
+    
+  } catch (error) {
+    res.status(500).json({
+      message: error.message
+    })
+  }
+}
+
+const fetchUserDuties = async (req,res) => {
+  try {
+    const id = req.params.id;
+    const duty = await Duty.find({assignedTo : id});
+    res.status(200).json(duty);
+    
+  } catch (error) {
+    res.status(500).json({
+      message : error.message
+    })
+  }
+}
+
+export {registerUser,loginUser,fetchUser,fetchUserbyID,handleClockIn,handleClockOut,assignDuty,fetchUserDuties};

@@ -75,7 +75,7 @@ form select{
 }
 
 button {
-    height: 40px;
+    height: auto;
     border: none;
     border-radius: 18px;
     background-color: #2E436A;
@@ -85,6 +85,7 @@ button {
     cursor: pointer;
     transition: 0.3s;
     margin: 20px 0px;
+    padding: 5px 0px;
 }
 
 button:hover {
