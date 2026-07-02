@@ -14,9 +14,21 @@ function DutiesContent(){
     const [title,setTitle] = useState("");
     const [description,setDescription] = useState("");
     const [duties,setDuties] = useState([])
+    const pendingDuties = duties.filter(duty => !duty.completed);
+    const completedDuties = duties.filter(duty => duty.completed);
 
     const staffImage = [avatar1,avatar2,avatar3];
     const [image,setImage] = useState(" ");
+
+        const changeCompletedStatus = async (dutyId) => {
+            try {
+                const response = await fetch(`http://localhost:8000/api/auth/duties/${dutyId}`,{method:"PUT"});
+                const updatedDuty = await response.json();
+                setDuties(prev => prev.map(duty =>duty._id===updatedDuty._id ? updatedDuty : duty));
+            } catch (error) {
+                alert("could not change the completed status")
+            }
+        }
 
         useEffect(() => {
             async function fetchStaff() {
@@ -48,6 +60,7 @@ function DutiesContent(){
                     description: description,
                     assignedTo: staff._id,
                     assignedBy: currentUser.id,
+                    completed:false,
                 }),
             })
             const data = await response.json();
@@ -73,7 +86,6 @@ function DutiesContent(){
                         <h2>{staff.firstName}{" "}{staff.lastName}</h2>
                         <h4>{staff.designation}</h4>
                         <p>Email : {staff.email}</p>
-                        <p>Phone : {staff.phoneNumber}</p>
                         </div>
                     </div>
 
@@ -103,14 +115,24 @@ function DutiesContent(){
 
                 <div className="duties">
                     <h3>TASK LIST</h3>
-                        {duties.map((duty,index) => {
+                        <h5>PENDING TASKS:</h5>
+                        {pendingDuties.length>0 ? pendingDuties.map((duty,index) => {
                             return(
-                            <div className="task-list" key={index}>
-                            <input type="checkbox" className="task" />
+                            <div className="task-list" key={duty._id}>
+                            <input type="checkbox" className="task" checked={duty.completed} onChange={() => changeCompletedStatus(duty._id)}/>
                             <label htmlFor="task">{duty.title}{" "}:{" "}{duty.description}</label>
                             </div>
                             )
-                        })}
+                        }) : <p className="empty-pending-task">//  NO PENDING TASKS //</p>}
+                        <h5>COMPLETED TASKS:</h5>
+                        {completedDuties.length>0 ? completedDuties.map((duty,index) => {
+                            return(
+                            <div className="task-list" key={duty._id}>
+                            <input type="checkbox" className="task" checked={duty.completed} onChange={() => changeCompletedStatus(duty._id)}/>
+                            <label htmlFor="task">{duty.title}{" "}:{" "}{duty.description}</label>
+                            </div>
+                            )
+                        }) : <p className="empty-pending-task">//  ALL TASKS COMPLETED //</p>}
                 </div>
                 </div>
                 </div>

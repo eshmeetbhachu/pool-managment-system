@@ -19,7 +19,7 @@ const dutySchema = new mongoose.Schema(
             ref:"User",
             required:true,
         },
-        Status:{
+        completed:{
             type:Boolean,
             default:false,
         },

@@ -129,10 +129,21 @@
     margin: 10px 5px;
 }
 
+.duties h5{
+    color: white;
+    text-decoration: underline rgba(255, 255, 255, 0.7);
+}
+
 .duties{
     background-color: rgba(31, 42, 72, 0.95);
     margin: 10px 10px;
     border-radius: 20px;
     min-height: 220px;
     padding: 10px;
+}
+
+.empty-pending-task{
+    margin: 20px 20px 20px 60px;
+    opacity: 0.6;
+    font-style: italic;
 }

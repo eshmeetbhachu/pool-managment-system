@@ -10,6 +10,7 @@ function StaffContent(){
 
     const staffImage = [avatar1,avatar2,avatar3];
     const [staff,setStaff] = useState([]);
+    const currentUser = JSON.parse(localStorage.getItem("user"))
 
     useEffect(() => {
         async function fetchStaff() {
@@ -29,7 +30,7 @@ function StaffContent(){
         {staff.map((person,index) => {
             const image = staffImage[index % staffImage.length];
             return(
-                <NavLink to={`/dashboard/duties/${person._id}`} className="card" key={person._id}>
+                <NavLink to={ currentUser.designation == "Admin" ? `/dashboard/duties/${person._id}` : `/dashboard/staff`} className="card" key={person._id}>
                 <div className="card-border-top">
                 </div>    
                 <div className="img">
@@ -37,8 +38,9 @@ function StaffContent(){
                 </div>
                 <span>{person.firstName}{" "}{person.lastName}</span>
                 <p className="job"> {person.designation}</p>
-                <p className="email">Email: {person.email}</p>
-                <p className="email">{person.isActive ? "Clocked IN" : "Clocked OUT"}</p>
+                <p className="personal">+91 {person.phoneNumber}</p>
+                {/* add phone and remove email */}
+                <p className="personal">{person.isActive ? "Clocked IN" : "Clocked OUT"}</p>
                 </NavLink>
             )
         })}

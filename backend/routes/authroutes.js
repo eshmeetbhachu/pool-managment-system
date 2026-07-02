@@ -1,5 +1,5 @@
 import express from "express";
-import { registerUser,loginUser,fetchUser,fetchUserbyID,handleClockIn,handleClockOut,assignDuty,fetchUserDuties} from "../controllers/authController.js";
+import { registerUser,loginUser,fetchUser,fetchUserbyID,handleClockIn,handleClockOut,assignDuty,fetchUserDuties,changeCompleteStatus} from "../controllers/authController.js";
 
 const router = express.Router();
 
@@ -10,6 +10,7 @@ router.get("/staff/:id", fetchUserbyID);
 router.put("/staff/:id/clockin", handleClockIn);
 router.put("/staff/:id/clockout", handleClockOut);
 router.post("/duties", assignDuty);
-router.get("/duties/:id",fetchUserDuties)
+router.get("/duties/:id",fetchUserDuties);
+router.put("/duties/:id",changeCompleteStatus);
 
 export default router;

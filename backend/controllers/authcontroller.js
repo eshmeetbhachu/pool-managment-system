@@ -210,13 +210,21 @@ const handleClockOut = async (req,res) =>{
 const assignDuty = async (req,res) => {
   try {
     console.log(req.body);
-    const {title,description,assignedTo,assignedBy} = req.body;
+    const {title,description,assignedTo,assignedBy,completed} = req.body;
+
+    const admin = await User.findById(assignedBy);
+    if(admin.designation != "Admin"){
+      return res.status(403).json({
+            message:"Only admins can assign duties"
+        });
+    }
 
     const duty = await Duty.create({
       title,
       description,
       assignedBy,
-      assignedTo
+      assignedTo,
+      completed
     });
 
     res.status(200).json({
@@ -227,6 +235,7 @@ const assignDuty = async (req,res) => {
         description:duty.description,
         assignedBy:duty.assignedBy,
         assignedTo:duty.assignedTo,
+        completed:duty.completed,
       }
     })
     
@@ -250,4 +259,18 @@ const fetchUserDuties = async (req,res) => {
   }
 }
 
-export {registerUser,loginUser,fetchUser,fetchUserbyID,handleClockIn,handleClockOut,assignDuty,fetchUserDuties};
+const changeCompleteStatus = async (req,res) => {
+  try {
+    const id = req.params.id;
+    const duty = await Duty.findById(id);
+    duty.completed = !duty.completed;
+    await duty.save();
+    res.status(200).json(duty);
+  } catch (error) {
+    res.status(500).json({
+      message : error.message
+    })
+  }
+}
+
+export {registerUser,loginUser,fetchUser,fetchUserbyID,handleClockIn,handleClockOut,assignDuty,fetchUserDuties,changeCompleteStatus};

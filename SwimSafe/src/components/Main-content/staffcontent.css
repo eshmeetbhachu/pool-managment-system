@@ -60,15 +60,20 @@
  align-items: center;
 }
 
-.email{
+.personal{
     width: 90%;
     color: white;
     font-size: 0.85rem;
-    margin: 10px 5px;
+    text-align: center;
+    margin: 0px 10px;
 }
 
 .img img{
     width: 70px;
     height: 80px;
     border-radius: 15px;
+}
+
+.job{
+    margin-bottom: 10px;
 }
